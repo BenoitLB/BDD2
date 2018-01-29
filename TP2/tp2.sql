@@ -37,11 +37,13 @@ CREATE TABLE Livres (
 );
 
 CREATE TABLE Achats (
-  idcl NUMBER REFERENCES Clients (idcl),
-  refl VARCHAR2(20) REFERENCES Livres (refl),
+  idcl NUMBER,
+  refl VARCHAR2(20),
   dateachat DATE,
 	-- Contrainte déclarant les clefs primaires idcl refl et dateachat
   CONSTRAINT achats_PK PRIMARY KEY (idcl, refl, dateachat),
+  CONSTRAINT achats_FKcl FOREIGN KEY(idcl) REFERENCES Clients(idcl),
+  CONSTRAINT achats_FKli FOREIGN KEY(refl) REFERENCES Livres(refl),
 	-- Contrainte indiquant que les livres doivent être achetés entre le 1er janvier 2008 et le 31 decembre 2013
   CONSTRAINT achats_C CHECK (dateachat >= '01-JAN-2008' AND dateachat <= '31-DEC-2013')
 );
@@ -53,8 +55,8 @@ CREATE TABLE Avis (
   commentaire VARCHAR2(60),
 	-- Contrainte déclarant les clefs primaires idcl et refl
   CONSTRAINT avis_PK PRIMARY KEY (idcl, refl),
-  CONSTRAINT avis_FK FOREIGN KEY(idcl) REFERENCES Clients(idcl),
-  FOREIGN KEY(refl) REFERENCES Livres(refl);
+  CONSTRAINT avis_FKcl FOREIGN KEY(idcl) REFERENCES Clients(idcl),
+  CONSTRAINT avis_FKli FOREIGN KEY(refl) REFERENCES Livres(refl),
 	-- Contrainte indiquant que les notes doivent être comprises entre 1 et 20
   CONSTRAINT avis_C CHECK (note >= 1 AND note <= 20)
 );
