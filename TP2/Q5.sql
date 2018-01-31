@@ -1,1 +1,4 @@
 ALTER TABLE Achats ADD prix NUMBER(*,2);
+
+UPDATE Achats SET prix = 10.80 WHERE refl = 'ISBN46545458';
+UPDATE Achats SET prix = 30.70 WHERE refl = 'ISBN12111221';
