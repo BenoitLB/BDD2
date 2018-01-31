@@ -1,0 +1,1 @@
+ALTER TABLE Achats ADD prix NUMBER(*,2);
