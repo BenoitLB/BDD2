@@ -126,5 +126,8 @@ INSERT INTO Achats VALUES (4,'ISBN46545458','13-FEB-2013');
 
 
 INSERT INTO Avis VALUES (1, 'ISBN46545458', 19.51, 'incroyable ! renversant ! J''ai pleure !');
+INSERT INTO Avis VALUES (2, 'ISBN46545458', 8.69, 'Choqué et déçu');
+INSERT INTO Avis VALUES (4, 'ISBN46545458', 15.42, 'Peut mieux faire');
+
 INSERT INTO Avis VALUES (2, 'ISBN12111221', 4.72, 'Pas terrible, je me suis endormi devant le cinéma');
 INSERT INTO Avis VALUES (2, 'ISBN68767855', 12.21, null);
