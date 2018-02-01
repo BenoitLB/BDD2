@@ -1,5 +1,5 @@
 -- @creation_insertion_tables.sql
-spool creation_insertion_tables.log
+
 prompt *************************************************************
 prompt ******************** DROP TABLE *****************************
 prompt *************************************************************
@@ -8,6 +8,10 @@ DROP TABLE AVIS CASCADE CONSTRAINTS;
 DROP TABLE ACHATS CASCADE CONSTRAINTS;
 DROP TABLE LIVRES CASCADE CONSTRAINTS;
 DROP TABLE CLIENTS CASCADE CONSTRAINTS;
+
+-- Drop de la séquence --
+DROP SEQUENCE enormeEtSeq;
+
 
 prompt *************************************************************
 prompt ******************** CREATE TABLE ***************************
@@ -37,7 +41,7 @@ CREATE TABLE ACHATS (
 	CONSTRAINT pk_achats PRIMARY KEY(idcl,refl,dateachat),
 	CONSTRAINT fk_achats_clients FOREIGN KEY(idcl) REFERENCES CLIENTS(idcl),
 	CONSTRAINT fk_achats_livres FOREIGN KEY(refl) REFERENCES LIVRES(refl),
-	CONSTRAINT check_dateachat 
+	CONSTRAINT check_dateachat
 		CHECK (dateachat BETWEEN to_date('01-01-2008','dd-mm-yyyy')
 			AND to_date('31-12-2013','dd-mm-yyyy'))
 );
@@ -53,30 +57,33 @@ CREATE TABLE AVIS (
 	CONSTRAINT check_note_avis CHECK (note BETWEEN 1 AND 20)
 );
 
+
+-- Création de la séquence qui servira pour les id de clients
+
+CREATE SEQUENCE enormeEtSeq START WITH 0 INCREMENT BY 1 MINVALUE 0;
+
 prompt *************************************************************
 prompt ******************** INSERT TUPLES **************************
 prompt *************************************************************
 
-INSERT INTO CLIENTS VALUES (1,'Moizeau','Isabelle','1 rue des roses','025031589');
-INSERT INTO CLIENTS VALUES (2,'Guilet','Pierre','1 rue des roses','025031575');
-INSERT INTO CLIENTS VALUES (3,'Dos Santos','Leonor','17 boulevard de Launay','065032089');
-INSERT INTO CLIENTS VALUES (4,'Douillard','Lucie','20 avenue wonderland','085031566');
+INSERT INTO Clients VALUES (enormeEtSeq.nextval,'Tellie','Fancois','13, rue des lilas', NULL);
+INSERT INTO Clients VALUES (enormeEtSeq.nextval,'Mitri','Dimitri','256000, rue de Poutine', '0666224488');
+INSERT INTO Clients VALUES (enormeEtSeq.nextval,'A peu pres','Jean-Michel','13', '0692145322');
+INSERT INTO Clients VALUES (enormeEtSeq.nextval,'Etienne','Pouly','6, allée des liserons', '08366565');
 
-INSERT INTO LIVRES VALUES ('04B52','Fahrenheit 451','Ray Bradbury','science-fiction');
-INSERT INTO LIVRES VALUES ('08E52','Le seigneur des anneaux','J. R. R. Tolkien','fantasy');
-INSERT INTO LIVRES VALUES ('12V52','Le Guide du voyageur galactique','Douglas Adams','science-fiction');
-INSERT INTO LIVRES VALUES ('AB52U','orgueil et prejuges','Jane Austen','romance');
+INSERT INTO Livres VALUES ('ISBN46545458','50Shades Of GrayCode','Emmanuel MACRON','PROJEEEET!');
+INSERT INTO Livres VALUES ('ISBN68767855','50Shades Of OCaml','Benoit LE BADEZET','SF');
+INSERT INTO Livres VALUES ('ISBN12111221','Les MATERNELLES','Prenom MELA','Autobiographie');
 
-INSERT INTO ACHATS VALUES (1,'04B52',to_date('10-10-2012','dd-mm-yyyy'));
-INSERT INTO ACHATS VALUES (1,'08E52',to_date('01-01-2010','dd-mm-yyyy'));
-INSERT INTO ACHATS VALUES (1,'12V52',to_date('10-10-2009','dd-mm-yyyy'));
-INSERT INTO ACHATS VALUES (2,'04B52',to_date('05-02-2011','dd-mm-yyyy'));
-INSERT INTO ACHATS VALUES (3,'04B52',to_date('05-02-2011','dd-mm-yyyy'));
 
-INSERT INTO AVIS VALUES (1,'04B52',18,'tres juste.');
-INSERT INTO AVIS VALUES (1,'08E52',15,'pas mal.');
-INSERT INTO AVIS VALUES (1,'12V52',20,'imbattable.');
-INSERT INTO AVIS VALUES (2,'04B52',20,'genial.');
-INSERT INTO AVIS (idcl,refl,note) VALUES (3,'04B52',20);
+INSERT INTO Achats VALUES (1,'ISBN12111221','28-MAR-2012');
+INSERT INTO Achats VALUES (1,'ISBN46545458','12-DEC-2009');
+INSERT INTO Achats VALUES (2,'ISBN46545458','12-JAN-2011');
+INSERT INTO Achats VALUES (3,'ISBN46545458','12-JAN-2011');
+INSERT INTO Achats VALUES (4,'ISBN46545458','13-FEB-2013');
 
-spool off
+
+
+INSERT INTO Avis VALUES (1, 'ISBN46545458', 19.51, 'incroyable ! renversant ! J''ai pleure !');
+INSERT INTO Avis VALUES (2, 'ISBN12111221', 4.72, 'Pas terrible, je me suis endormi devant le cinéma');
+INSERT INTO Avis VALUES (2, 'ISBN68767855', 12.21, null);
