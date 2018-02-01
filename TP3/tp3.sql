@@ -11,7 +11,7 @@ DROP TABLE Clients CASCADE CONSTRAINTS;
 DROP TABLE Parcours CASCADE CONSTRAINTS;
 DROP TABLE Compo_parcours CASCADE CONSTRAINTS;
 DROP TABLE Inscrip_parcours CASCADE CONSTRAINTS;
-DROP TABLE Incrip_evt CASCADE CONSTRAINTS;
+DROP TABLE Inscrip_evt CASCADE CONSTRAINTS;
 
 -- Drop de la séquence --
 DROP SEQUENCE enormeEtSeq;
@@ -75,8 +75,7 @@ CREATE TABLE Compo_parcours (
 	idp 	VARCHAR2(10),
 	id_evt VARCHAR2(10),
 	CONSTRAINT pk_compo PRIMARY KEY(idp, id_evt),
-	CONSTRAINT fk_comp_p FOREIGN KEY(idp) REFERENCES Parcours(idp),
-	CONSTRAINT fk_comp_evt FOREIGN KEY(id_evt) REFERENCES Inscrip_evt(id_evt)
+	CONSTRAINT fk_comp_p FOREIGN KEY(idp) REFERENCES Parcours(idp)
 );
 
 
@@ -89,14 +88,15 @@ CREATE TABLE Inscrip_parcours (
 );
 
 
-CREATE TABLE Incrip_evt (
+CREATE TABLE Inscrip_evt (
 	idcl	 NUMBER,
 	idp 	VARCHAR2(10),
 	id_evt VARCHAR2(10),
-	CONSTRAINT pk_evt PRIMARY KEY(idp, idcl, id_evt),
-	CONSTRAINT fk_evt_p FOREIGN KEY(idp) REFERENCES Parcours(idp),
-	CONSTRAINT fk_evt_cl FOREIGN KEY(idcl) REFERENCES Clients(idcl)
+	CONSTRAINT pk_evt_1 PRIMARY KEY(id_evt, idp, idcl),
+	CONSTRAINT fk_evt_cl FOREIGN KEY(idcl) REFERENCES Clients(idcl),
+	CONSTRAINT fk_evt_cp FOREIGN KEY(id_evt, idp) REFERENCES Compo_parcours(id_evt, idp)
 );
+
 
 
 -- Création de la séquence qui servira pour les id de clients
