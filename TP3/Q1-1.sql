@@ -1,14 +1,14 @@
 -- Ajout de l'attribut note_moy a la table Livres
 ALTER TABLE Livres ADD note_moy NUMBER(4,2);
 
--- Début du bloc PL/SQL
-
 SET SERVEROUT ON;
 
 
 
 
 -- Petit a
+
+-- Début du bloc PL/SQL
 DECLARE
   liv Livres.refl%type;
   moyenne NUMBER(4,2);
@@ -49,6 +49,7 @@ END;
 
 
 -- Petit b
+
 DECLARE
   CURSOR c1 IS SELECT refl, AVG(note) AS m
                FROM Avis
@@ -71,6 +72,7 @@ END;
 
 
 -- Petit c
+
 CREATE OR REPLACE PROCEDURE MAJmoyenne IS
 
   CURSOR c1 IS SELECT refl, AVG(note) AS m
@@ -94,23 +96,6 @@ BEGIN
   MAJmoyenne;
 END;
 /
-
-
-
-
--- Question 1 petit 2
-
-CREATE TRIGGER tr_majmoy
-BEFORE INSERT OR UPDATE ON Avis
-
-DECLARE
-  nbliv NUMBER;
-  nmoy NUMBER;
-BEGIN
-
-
-
-
 
 
 
