@@ -114,7 +114,7 @@ INSERT INTO Clients VALUES (enormeEtSeq.nextval,'Etienne','Pouly','6, allée des
 
 INSERT INTO Livres VALUES ('ISBN46545458','50Shades Of GrayCode','Emmanuel MACRON','PROJEEEET!');
 INSERT INTO Livres VALUES ('ISBN68767855','50Shades Of OCaml','Benoit LE BADEZET','SF');
-INSERT INTO Livres VALUES ('ISBN12111221','Les MATERNELLES','Prenom MELA','Autobiographie');
+INSERT INTO Livres VALUES ('ISBN12111221','Les MATERNELLES','Prenom MELA','Otobiografie');
 
 
 INSERT INTO Achats VALUES (1,'ISBN12111221','28-MAR-2012');
