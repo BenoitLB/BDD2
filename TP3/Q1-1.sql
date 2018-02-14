@@ -38,7 +38,7 @@ BEGIN
   END IF;
 
 EXCEPTION
-  WHEN PAS_DE_LIVRE THEN DBMS_OUTPUT.PUT_LINE('reférence inexistante' || existe);
+  WHEN PAS_DE_LIVRE THEN DBMS_OUTPUT.PUT_LINE('reférence inexistante' || liv);
 
 END;
 /
