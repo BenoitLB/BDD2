@@ -1,5 +1,6 @@
 
-
+-- Déclencheur qui permet de vérifier qu'un client qui ajoute un avis sur un livre l'a bien acheté au préalable.
+-- Dans le cas contraire, on renvoie une exception.
 CREATE OR REPLACE TRIGGER tr_ajout_poss
 BEFORE INSERT ON Avis
 FOR EACH ROW
@@ -18,7 +19,7 @@ BEGIN
 
 EXCEPTION
   WHEN impossibru THEN
-    RAISE_APPLICATION_ERROR(-20090, 'On ne note pas un livre qu''on a pas acheter, ou alors t''es un pirate et c''est pas bien ');
+    RAISE_APPLICATION_ERROR(-20090, 'On ne note pas un livre qu''on a pas achete, ou alors t''es un pirate et c''est pas bien ');
 
 END;
 /
