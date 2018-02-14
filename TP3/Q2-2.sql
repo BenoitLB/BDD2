@@ -31,3 +31,6 @@ EXCEPTION
 
 END;
 /
+
+
+-- Faudra regarder le fait qu'il n'affiche pas les phrases
