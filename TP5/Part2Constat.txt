@@ -1,0 +1,30 @@
+REQUÊTE 1
+
+Publication :
+  1- Parcours complet de la table
+  Filtre pour afficher les résultats
+  Temps : 00:00:23
+
+Publication1 :
+  1-  Parcours de la table en fonction des index posés
+  Accès pour afficher les résultats
+  Temps : 00:00:01
+
+Cette différence s'explique a cause de l'indexation de la table publication1 qui permet a la recherche d'être plus optimisée
+
+
+REQUÊTE 4
+
+Publication :
+  On utilise des boucles imbriquée et des hachages afin de parvenir a notre table finale
+  On fait deux accessions puis un filtre puis un nouvel accès ou afficher nos résultats
+  On remarque aussi l'utilisation d'un index pour la table
+
+Publication1 :
+  On n'utilise aucune boucle imbriquée pour parvenir a notre table finale, nous perdons plus de temps que pour publication (00:01:18 contre 00:00:55)
+  On fait trois accessions puis ensuite on filtre les résultats
+
+La requête pour publication vas plus vite que la requête pour publication1 !
+
+REQUÊTE 2 & 3 :
+  Les différences sont mineures: le nombre de rows selectionnées pour publication1 est supérieur à celui de publication, cela influe un peu sur le temps passé (une seconde d'écart).
