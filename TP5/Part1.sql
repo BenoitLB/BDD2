@@ -63,33 +63,58 @@ SELECT COUNT(*) FROM facts;
 --  COUNT(*)
 --  ----------
 --    473176
+--
+-- PRIMARY KEY = {PUBLICATION_ID, SQUAD_ID}
+-- FOREIGN KEY = {  PUBLICATION_ID REFERENCES PUBLICATIONS (PUBLICATIONS_ID)
+--                  SQUAD_ID REFERENCES SQUADS (SQUAD_ID)
+--                  DATE_ID REFERENCES DATES (DATE_ID)
+--                  SUPPORT_ID REFERENCES SUPPORTS (SUPPORTS_ID)    }
 
 SELECT COUNT(*) FROM authors;
 --  COUNT(*)
 --  ----------
 --    454807
+--
+-- PRIMARY KEY = {AUTHOR_ID}
+-- FOREIGN KEY = { }
 
 SELECT COUNT(*) FROM collaborations;
 --  COUNT(*)
 --  ----------
 --   1212896
+--
+-- PRIMARY KEY = {SQUAD_ID, AUTHOR_ID}
+-- FOREIGN KEY = {  SQUAD_ID REFERENCES SQUADS (SQUAD_ID)
+--                  AUTHOR_ID REFERENCES AUTHORS (AUTHOR_ID)    }
 
 SELECT COUNT(*) FROM dates;
 --  COUNT(*)
 --  ----------
 --       407
+--
+-- PRIMARY KEY = {DATES_ID}
+-- FOREIGN KEY = { }
 
 SELECT COUNT(*) FROM publications;
 --  COUNT(*)
 --  ----------
 --    481659
+--
+-- PRIMARY KEY = {PUBLICATION_ID}
+-- FOREIGN KEY = { }
 
 SELECT COUNT(*) FROM squads;
 --  COUNT(*)
 --  ----------
 --    479540
+--
+-- PRIMARY KEY = {SQUAD_ID}
+-- FOREIGN KEY = { }
 
 SELECT COUNT(*) FROM supports;
 --  COUNT(*)
 --  ----------
 --     11243
+--
+-- PRIMARY KEY = {SUPPORT_ID}
+-- FOREIGN KEY = { }
