@@ -1,0 +1,69 @@
+SELECT INDEX_NAME,INDEX_TYPE,TABLE_NAME,NUM_ROWS FROM ALL_INDEXES WHERE TABLE_NAME = 'PUBLICATIONS';
+
+INDEX_NAME		                 INDEX_TYPE		               TABLE_NAME			                NUM_ROWS
+------------------------------ --------------------------- ------------------------------ ----------
+PK_PUBLICATION		             NORMAL			                 PUBLICATIONS 		               481659
+
+
+
+
+SELECT INDEX_NAME,INDEX_TYPE,TABLE_NAME,NUM_ROWS FROM ALL_INDEXES WHERE TABLE_NAME = 'PUBLICATIONS1';
+
+INDEX_NAME		                  INDEX_TYPE		               TABLE_NAME			              NUM_ROWS
+------------------------------ --------------------------- ------------------------------ ----------
+INDEX_PUB1		                   NORMAL			                 PUBLICATIONS1			           0
+PUB1			                       NORMAL			                 PUBLICATIONS1		             464337
+
+
+
+
+SELECT INDEX_NAME,INDEX_TYPE,TABLE_NAME,NUM_ROWS FROM ALL_INDEXES WHERE TABLE_NAME = 'FACTS';
+
+INDEX_NAME		                  INDEX_TYPE		              TABLE_NAME			               NUM_ROWS
+------------------------------ --------------------------- ------------------------------ ----------
+PK_FACT 		                    NORMAL			                FACTS			                     473964
+
+
+
+
+SELECT INDEX_NAME,INDEX_TYPE,TABLE_NAME,NUM_ROWS FROM ALL_INDEXES WHERE TABLE_NAME = 'AUTHORS';
+
+INDEX_NAME		                   INDEX_TYPE		               TABLE_NAME			              NUM_ROWS
+------------------------------ --------------------------- ------------------------------ ----------
+PK_AUTHOR		                     NORMAL			                 AUTHORS			                  454807
+
+
+
+
+SELECT INDEX_NAME,INDEX_TYPE,TABLE_NAME,NUM_ROWS FROM ALL_INDEXES WHERE TABLE_NAME = 'COLLABORATIONS';
+
+INDEX_NAME		                  INDEX_TYPE		              TABLE_NAME			               NUM_ROWS
+------------------------------ --------------------------- ------------------------------ ----------
+PK_COLLABORATION	               NORMAL			                 COLLABORATIONS		             1179578
+
+
+
+
+SELECT INDEX_NAME,INDEX_TYPE,TABLE_NAME,NUM_ROWS FROM ALL_INDEXES WHERE TABLE_NAME = 'DATES';
+
+INDEX_NAME		                  INDEX_TYPE		              TABLE_NAME			              NUM_ROWS
+------------------------------ --------------------------- ------------------------------ ----------
+PK_DATE_ID		                   NORMAL			                DATES				                   407
+
+
+
+
+SELECT INDEX_NAME,INDEX_TYPE,TABLE_NAME,NUM_ROWS FROM ALL_INDEXES WHERE TABLE_NAME = 'SQUADS';
+
+INDEX_NAME		                 INDEX_TYPE		               TABLE_NAME			                NUM_ROWS
+------------------------------ --------------------------- ------------------------------ ----------
+PK_SQUAD		                   NORMAL			                  SQUADS			                   479540
+
+
+
+
+SELECT INDEX_NAME,INDEX_TYPE,TABLE_NAME,NUM_ROWS FROM ALL_INDEXES WHERE TABLE_NAME = 'SUPPORTS';
+
+INDEX_NAME		                 INDEX_TYPE		               TABLE_NAME			                NUM_ROWS
+------------------------------ --------------------------- ------------------------------ ----------
+PK_SUPPORT		                  NORMAL			                SUPPORTS			                 11243
